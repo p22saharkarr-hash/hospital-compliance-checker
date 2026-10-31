@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RF Hospital - Marketing Compliance Checker</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    padding:30px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.header{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+h1{
+    color:#003366;
+    font-size:28px;
+}
+
+.sub{
+    color:#666;
+    margin-top:5px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+label{
+    font-weight:600;
+    display:block;
+    margin-bottom:10px;
+}
+
+input[type=file]{
+    width:100%;
+    padding:10px;
+    border:1px solid #d9d9d9;
+    border-radius:6px;
+}
+
+button{
+    margin-top:20px;
+    width:100%;
+    background:#0066cc;
+    color:white;
+    border:none;
+    padding:14px;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0053a6;
+}
+
+.results{
+    display:none;
+}
+
+.score{
+    text-align:center;
+    font-size:60px;
+    font-weight:bold;
+    color:#22a745;
+}
+
+.score-label{
+    text-align:center;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.metric{
+    display:flex;
+    justify-content:space-between;
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+.good{
+    color:green;
+}
+
+.warning{
+    color:#e67e22;
+}
+
+.risk{
+    background:#fff4e5;
+    padding:15px;
+    border-left:4px solid orange;
+    margin-top:15px;
+    border-radius:5px;
+}
+
+.suggestions{
+    margin-top:20px;
+}
+
+.suggestions ul{
+    margin-left:20px;
+}
+
+.footer{
+    text-align:center;
+    color:#888;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Marketing Compliance Scanner</h1>
+        <p class="sub">
+            Upload creatives, marketing communication or promotional documents.
+            The system checks alignment with NMC Guidelines.
+        </p>
+    </div>
+
+    <div class="card">
+        <label>Upload Creative / Marketing Document</label>
+        <input type="file" id="fileUpload">
+
+        <button onclick="analyzeDocument()">
+            Analyze Compliance
+        </button>
+    </div>
+
+    <div class="card results" id="results">
+
+        <div class="score">87%</div>
+        <div class="score-label">
+            Overall NMC Compliance Score
+        </div>
+
+        <div class="metric">
+            <span>Evidence-Based Claims</span>
+            <span class="good">95%</span>
+        </div>
+
+        <div class="metric">
+            <span>No Misleading Superlatives</span>
+            <span class="warning">75%</span>
+        </div>
+
+        <div class="metric">
+            <span>Doctor Advertisement Restrictions</span>
+            <span class="good">92%</span>
+        </div>
+
+        <div class="metric">
+            <span>Patient Privacy Compliance</span>
+            <span class="good">100%</span>
+        </div>
+
+        <div class="metric">
+            <span>Medical Disclaimer Coverage</span>
+            <span class="warning">70%</span>
+        </div>
+
+        <div class="risk">
+            <strong>Moderate Risk Observed</strong><br><br>
+            Promotional language and outcome-based claims require review before publication.
+        </div>
+
+        <div class="suggestions">
+            <h3>Suggested Changes</h3>
+
+            <ul>
+                <li>Replace words such as "Best", "Guaranteed", or "No.1" with factual statements.</li>
+                <li>Add source citation for clinical success rate claims.</li>
+                <li>Include a standard medical disclaimer.</li>
+                <li>Avoid implying assured treatment outcomes.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Internal Marketing Governance Tool | RF Hospital
+    </div>
+
+</div>
+
+<script>
+
+function analyzeDocument(){
+
+let file = document.getElementById('fileUpload').files[0];
+
+if(!file){
+    alert("Please upload a document.");
+    return;
+}
+
+document.getElementById('results').style.display='block';
+window.scrollTo({
+    top:document.body.scrollHeight,
+    behavior:'smooth'
+});
+
+}
+
+</script>
+
+</body>
+</html>
